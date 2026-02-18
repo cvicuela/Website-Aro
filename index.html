@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Aro - Agencia Creativa | Marketing & Publicidad RD</title>
     <meta name="description" content="Grupo Aro es una agencia de marketing y publicidad en República Dominicana. Transformamos ideas en experiencias memorables.">
-    
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1139,7 +1145,7 @@
     <!-- Navigation -->
     <nav>
         <div class="logo-container">
-            <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro Logo" class="logo-img" onerror="this.style.display='none'">
+            <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro Logo" class="logo-img" data-fallback-hide>
         </div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
@@ -1296,7 +1302,7 @@
                 </div>
             </div>
             <div class="about-visual">
-                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/logo-naranja-blanco-10.png" alt="Grupo Aro" class="about-logo" onerror="this.style.display='none'">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/logo-naranja-blanco-10.png" alt="Grupo Aro" class="about-logo" data-fallback-hide>
             </div>
         </div>
     </section>
@@ -1326,7 +1332,7 @@
                         <div class="contact-icon">📱</div>
                         <div class="contact-text">
                             <span>WhatsApp</span>
-                            <a href="https://wa.me/18299420405" target="_blank">+1 (829) 942-0405</a>
+                            <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer">+1 (829) 942-0405</a>
                         </div>
                     </div>
                     <div class="contact-item fade-in">
@@ -1340,17 +1346,21 @@
             </div>
             <div class="contact-form fade-in">
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <!-- Honeypot anti-spam (hidden from real users) -->
+                    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre completo" maxlength="100" autocomplete="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com" maxlength="254" autocomplete="email">
                     </div>
                     <div class="form-group">
                         <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        <textarea id="message" name="message" required placeholder="Cuéntanos sobre tu proyecto..." maxlength="2000"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
                         <span>Enviar Mensaje</span>
@@ -1364,11 +1374,11 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro" class="footer-logo-img" onerror="this.style.display='none'">
+            <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro" class="footer-logo-img" data-fallback-hide>
             <div class="footer-social">
-                <a href="https://www.instagram.com/mynameisaro/" target="_blank" class="social-link" aria-label="Instagram">📷</a>
-                <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" class="social-link" aria-label="LinkedIn">💼</a>
-                <a href="https://wa.me/18299420405" target="_blank" class="social-link" aria-label="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">📷</a>
+                <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">💼</a>
+                <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">💬</a>
             </div>
             <p class="footer-text">© 2025 Grupo Aro · Studio Est. 2008 · Todos los derechos reservados</p>
         </div>
@@ -1438,6 +1448,11 @@
                 }
             });
         });
+
+        // Image fallback: hide broken images without inline onerror
+        document.querySelectorAll('img[data-fallback-hide]').forEach(img => {
+            img.addEventListener('error', () => { img.style.display = 'none'; });
+        });
     </script>
 
     <!-- WhatsApp AI Sales Agent Chat Widget -->
@@ -1452,7 +1467,7 @@
             </div>
             <div class="wa-chat-messages" id="waChatMessages"></div>
             <div class="wa-chat-input">
-                <input type="text" id="waChatInput" placeholder="Escribe tu mensaje..." autocomplete="off">
+                <input type="text" id="waChatInput" placeholder="Escribe tu mensaje..." autocomplete="off" maxlength="500">
                 <button id="waChatSend" aria-label="Enviar">
                     <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
@@ -1519,11 +1534,19 @@
             processInput(text);
         }
 
+        // === SANITIZE HTML (prevent XSS) ===
+        function sanitizeHTML(str) {
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
         // === ADD MESSAGE TO CHAT ===
         function addMessage(text, sender, quickReplies) {
             var msgDiv = document.createElement('div');
             msgDiv.className = 'wa-msg wa-msg-' + (sender === 'user' ? 'user' : 'bot');
-            msgDiv.innerHTML = text + '<div class="wa-msg-time">' + getTime() + '</div>';
+            var safeText = sender === 'user' ? sanitizeHTML(text) : text;
+            msgDiv.innerHTML = safeText + '<div class="wa-msg-time">' + getTime() + '</div>';
             messagesEl.appendChild(msgDiv);
 
             if (quickReplies && quickReplies.length > 0) {
@@ -1597,7 +1620,7 @@
 
             switch (conversationState) {
                 case 'ask_name':
-                    userName = text.split(' ')[0];
+                    userName = sanitizeHTML(text.split(' ')[0]);
                     userName = userName.charAt(0).toUpperCase() + userName.slice(1);
                     conversationState = 'main_menu';
                     botReply(
@@ -1803,7 +1826,7 @@
             var url = 'https://wa.me/' + AGENT_CONFIG.whatsappNumber + '?text=' + encoded;
 
             botReply(
-                '🟢 Conectandote con <strong>Wendolyn Rodriguez</strong> por WhatsApp...<br><br>Se abrira WhatsApp en unos segundos. Si no se abre automaticamente, haz clic aqui:<br><br><a href="' + url + '" target="_blank" rel="noopener" style="color:#075E54; font-weight:700; text-decoration:underline;">Abrir WhatsApp &rarr;</a><br><br>Gracias por tu interes en Grupo Aro, ' + userName + '! 🎉',
+                '🟢 Conectandote con <strong>Wendolyn Rodriguez</strong> por WhatsApp...<br><br>Se abrira WhatsApp en unos segundos. Si no se abre automaticamente, haz clic aqui:<br><br><a href="' + url + '" target="_blank" rel="noopener noreferrer" style="color:#075E54; font-weight:700; text-decoration:underline;">Abrir WhatsApp &rarr;</a><br><br>Gracias por tu interes en Grupo Aro, ' + userName + '! 🎉',
                 null,
                 1000
             );
