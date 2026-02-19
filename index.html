@@ -384,21 +384,24 @@
             transform: scaleX(1);
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-            font-size: 2.2rem;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        .service-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        .service-card:hover .service-icon {
-            transform: rotate(8deg) scale(1.08);
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.08);
         }
 
         .service-title {
@@ -1213,42 +1216,54 @@
         </div>
         <div class="services-grid">
             <div class="service-card fade-in">
-                <div class="service-icon">🎨</div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=80" alt="Branding y diseno">
+                </div>
                 <h3 class="service-title">Branding & Diseño</h3>
                 <p class="service-description">
                     Creamos identidades visuales únicas que conectan emocionalmente con tu audiencia y diferencian tu marca en el mercado.
                 </p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">📱</div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop&q=80" alt="Marketing digital">
+                </div>
                 <h3 class="service-title">Marketing Digital</h3>
                 <p class="service-description">
                     Estrategias digitales 360° que combinan SEO, SEM, redes sociales y contenido para maximizar tu presencia online.
                 </p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">📸</div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop&q=80" alt="Produccion audiovisual">
+                </div>
                 <h3 class="service-title">Producción Audiovisual</h3>
                 <p class="service-description">
                     Fotografía y video profesional que cuenta la historia de tu marca de manera impactante y memorable.
                 </p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">💡</div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80" alt="Estrategia creativa">
+                </div>
                 <h3 class="service-title">Estrategia Creativa</h3>
                 <p class="service-description">
                     Conceptos innovadores y campañas publicitarias que generan conversaciones y resultados medibles.
                 </p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">🌐</div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80" alt="Desarrollo web">
+                </div>
                 <h3 class="service-title">Desarrollo Web</h3>
                 <p class="service-description">
                     Sitios web y plataformas digitales diseñadas para convertir visitantes en clientes leales.
                 </p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">📊</div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" alt="Analytics y growth">
+                </div>
                 <h3 class="service-title">Analytics & Growth</h3>
                 <p class="service-description">
                     Análisis de datos y optimización continua para asegurar el crecimiento sostenible de tu marca.
