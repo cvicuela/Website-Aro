@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneos Padel RD - Organizacion de Eventos Deportivos | Grupo Aro</title>
+    <meta name="description" content="Organizacion profesional de torneos de padel en Republica Dominicana. Produccion integral, branding deportivo, cobertura audiovisual y patrocinios.">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6347;
+            --primary-light: #FF8C69;
+            --secondary: #1A1A1A;
+            --bg-dark: #000000;
+            --bg-light: #F8F8F8;
+            --text-dark: #0A0A0A;
+            --text-light: #FFFFFF;
+            --text-gray: #8A8A8A;
+            --gradient-primary: linear-gradient(135deg, #FF6347 0%, #FF8C69 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 99, 71, 0.1);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo-img { height: 45px; width: auto; }
+
+        .nav-links { display: flex; gap: 3rem; list-style: none; align-items: center; }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 5% 6rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(255,99,71,0.15) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 99, 71, 0.15);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 99, 71, 0.3);
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(255, 99, 71, 0.4);
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover { border-color: var(--primary); transform: translateY(-3px); }
+
+        .cta-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+        /* Stats Banner */
+        .stats-banner {
+            padding: 4rem 5%;
+            background: var(--gradient-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .section-header {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 99, 71, 0.1);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: var(--text-dark);
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+            border-color: rgba(255, 99, 71, 0.2);
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .service-image img { transform: scale(1.08); }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p { color: #666; line-height: 1.8; font-size: 1rem; }
+
+        /* Showcase Gallery */
+        .showcase {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-item {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/10;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 99, 71, 0.2);
+        }
+
+        .showcase-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .showcase-item:hover img { transform: scale(1.08); }
+
+        .showcase-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 60%);
+        }
+
+        .showcase-info {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1;
+        }
+
+        .showcase-info span {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(255, 99, 71, 0.25);
+            color: white;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .showcase-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Packages */
+        .packages {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+        }
+
+        .package-card.featured {
+            border-color: var(--primary);
+            position: relative;
+        }
+
+        .package-card.featured::after {
+            content: 'Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .package-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin: 1rem 0;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .package-card ul li {
+            padding: 0.6rem 0;
+            color: #666;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+
+        .package-card ul li::before { content: '\2713\0020'; color: var(--primary); font-weight: 700; }
+
+        /* Process */
+        .process {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-radius: 24px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .process-step:hover {
+            transform: translateY(-8px);
+            background: rgba(255,99,71,0.05);
+            border-color: rgba(255,99,71,0.2);
+        }
+
+        .step-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .process-step h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .process-step p { color: var(--text-gray); line-height: 1.7; font-size: 0.95rem; }
+
+        /* CTA */
+        .cta-section {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo-img { height: 50px; width: auto; }
+        .footer-social { display: flex; gap: 1.2rem; }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px) rotate(5deg);
+            border-color: var(--primary);
+        }
+
+        .footer-text { color: var(--text-gray); font-size: 0.95rem; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* WhatsApp Floating Chat Widget */
+        .wa-chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9999; font-family: 'Manrope', sans-serif; }
+        .wa-chat-btn { width: 64px; height: 64px; border-radius: 50%; background: #25D366; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+        .wa-chat-btn:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55); }
+        .wa-chat-btn svg { width: 34px; height: 34px; fill: white; }
+        .wa-chat-btn .wa-close-icon { display: none; font-size: 28px; color: white; line-height: 1; }
+        .wa-chat-widget.open .wa-chat-btn svg { display: none; }
+        .wa-chat-widget.open .wa-chat-btn .wa-close-icon { display: block; }
+        .wa-chat-btn .wa-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: #25D366; animation: waPulse 2s ease-out infinite; z-index: -1; }
+        @keyframes waPulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.6); opacity: 0; } }
+        .wa-chat-box { position: absolute; bottom: 80px; right: 0; width: 380px; max-height: 520px; background: #fff; border-radius: 20px; box-shadow: 0 12px 48px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; animation: waChatIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        .wa-chat-widget.open .wa-chat-box { display: flex; }
+        @keyframes waChatIn { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .wa-chat-header { background: #075E54; padding: 18px 20px; display: flex; align-items: center; gap: 12px; }
+        .wa-chat-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; font-weight: 700; flex-shrink: 0; }
+        .wa-chat-header-info h4 { color: white; font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
+        .wa-chat-header-info p { color: rgba(255,255,255,0.75); font-size: 0.75rem; }
+        .wa-chat-messages { flex: 1; overflow-y: auto; padding: 16px; background: #ECE5DD; display: flex; flex-direction: column; gap: 10px; max-height: 320px; min-height: 200px; }
+        .wa-msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.88rem; line-height: 1.5; position: relative; word-wrap: break-word; }
+        .wa-msg-bot { background: white; color: #303030; align-self: flex-start; border-top-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+        .wa-msg-user { background: #DCF8C6; color: #303030; align-self: flex-end; border-top-right-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+        .wa-msg-time { font-size: 0.65rem; color: #999; text-align: right; margin-top: 4px; }
+        .wa-quick-replies { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .wa-quick-btn { background: rgba(7, 94, 84, 0.08); border: 1px solid #075E54; color: #075E54; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; font-family: 'Manrope', sans-serif; font-weight: 600; transition: all 0.2s ease; }
+        .wa-quick-btn:hover { background: #075E54; color: white; }
+        .wa-chat-input { display: flex; padding: 12px; background: #fff; border-top: 1px solid #eee; gap: 8px; }
+        .wa-chat-input input { flex: 1; border: 1px solid #ddd; border-radius: 24px; padding: 10px 18px; font-size: 0.88rem; font-family: 'Manrope', sans-serif; outline: none; background: #f8f8f8; color: #303030; transition: border-color 0.2s ease; }
+        .wa-chat-input input:focus { border-color: #075E54; }
+        .wa-chat-input button { width: 42px; height: 42px; border-radius: 50%; background: #25D366; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; flex-shrink: 0; }
+        .wa-chat-input button:hover { background: #1DA851; }
+        .wa-chat-input button svg { width: 20px; height: 20px; fill: white; }
+        .wa-typing { display: flex; gap: 4px; padding: 10px 14px; background: white; border-radius: 12px; border-top-left-radius: 4px; align-self: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+        .wa-typing span { width: 8px; height: 8px; border-radius: 50%; background: #aaa; animation: waTypingDot 1.4s infinite; }
+        .wa-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .wa-typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes waTypingDot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
+        @media (max-width: 480px) { .wa-chat-box { width: calc(100vw - 32px); right: -8px; bottom: 74px; max-height: 70vh; } }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.8rem; letter-spacing: -2px; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro Logo" class="logo-img" data-fallback-hide>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#portafolio">Portafolio</a></li>
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1600&h=900&fit=crop&q=80" alt="Torneo de padel cancha profesional">
+        </div>
+        <div class="hero-content">
+            <span class="hero-label">Eventos Deportivos</span>
+            <h1 class="hero-title">
+                Torneos<br><span class="highlight">Padel RD</span>
+            </h1>
+            <p class="hero-subtitle">
+                Organizacion profesional de torneos de padel en Republica Dominicana. Produccion integral, branding deportivo, cobertura audiovisual y gestion de patrocinios para eventos deportivos de alto nivel.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/18299420405?text=Hola%2C%20me%20interesa%20organizar%20un%20torneo%20de%20padel%20con%20Grupo%20Aro" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span>Organizar Torneo</span>
+                    <span>&rarr;</span>
+                </a>
+                <a href="#servicios" class="btn btn-secondary">
+                    <span>Ver Servicios</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Torneos Organizados</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Jugadores Participantes</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Sponsors Activos</p>
+            </div>
+            <div class="stat-item">
+                <h3>1M+</h3>
+                <p>Alcance en Redes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="services">
+        <div class="section-header">
+            <span class="section-label">Servicios</span>
+            <h2 class="section-title">Organizacion Integral de Torneos</h2>
+            <p class="section-description">Todo lo que necesitas para crear un torneo de padel exitoso, desde la logistica hasta la cobertura mediatica</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=360&fit=crop&q=80" alt="Logistica y planificacion de eventos">
+                </div>
+                <h3>Logistica &amp; Planificacion</h3>
+                <p>Coordinacion completa del torneo: formatos de juego, cuadros de llaves, cronogramas, arbitraje y gestion de inscripciones para una experiencia impecable.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=360&fit=crop&q=80" alt="Branding deportivo diseno">
+                </div>
+                <h3>Branding Deportivo</h3>
+                <p>Identidad visual del torneo: logo, materiales impresos, senaletica, banners, trofeos personalizados y merchandising oficial del evento.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=360&fit=crop&q=80" alt="Cobertura audiovisual camaras">
+                </div>
+                <h3>Cobertura Audiovisual</h3>
+                <p>Fotografia y video profesional del evento: highlights, entrevistas, cobertura en vivo para redes sociales y video resumen post-torneo.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=360&fit=crop&q=80" alt="Patrocinios y alianzas negocios">
+                </div>
+                <h3>Gestion de Patrocinios</h3>
+                <p>Captacion y gestion de sponsors: propuestas comerciales, activaciones de marca en cancha, integracion de patrocinadores y retorno de inversion.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=360&fit=crop&q=80" alt="Marketing digital redes sociales">
+                </div>
+                <h3>Marketing Digital</h3>
+                <p>Estrategia de comunicacion pre, durante y post torneo: redes sociales, email marketing, campanas de inscripcion y cobertura en tiempo real.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=360&fit=crop&q=80" alt="Produccion de eventos escenario">
+                </div>
+                <h3>Produccion de Evento</h3>
+                <p>Montaje completo: sonido, iluminacion, pantallas LED, zona VIP, area de sponsors, catering coordination y experiencia premium para jugadores e invitados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Gallery -->
+    <section class="showcase">
+        <div class="section-header">
+            <span class="section-label">Galeria</span>
+            <h2 class="section-title">Momentos que Inspiran</h2>
+        </div>
+        <div class="showcase-grid">
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&h=500&fit=crop&q=80" alt="Cancha de padel torneo">
+                <div class="showcase-info">
+                    <span>Torneos</span>
+                    <h3>Copa Padel Santo Domingo</h3>
+                </div>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1461896836934-bd45ba35e3b7?w=800&h=500&fit=crop&q=80" alt="Ceremonia premiacion deportiva">
+                <div class="showcase-info">
+                    <span>Premiacion</span>
+                    <h3>Ceremonia de Campeones</h3>
+                </div>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop&q=80" alt="Evento deportivo produccion">
+                <div class="showcase-info">
+                    <span>Produccion</span>
+                    <h3>Montaje Zona VIP</h3>
+                </div>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop&q=80" alt="Reuniones sponsors patrocinadores">
+                <div class="showcase-info">
+                    <span>Sponsors</span>
+                    <h3>Activaciones de Marca</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="packages">
+        <div class="section-header">
+            <span class="section-label">Planes</span>
+            <h2 class="section-title">Paquetes de Organizacion</h2>
+            <p class="section-description">Planes adaptados al tamano y necesidades de tu torneo de padel</p>
+        </div>
+        <div class="packages-grid">
+            <div class="package-card fade-in">
+                <h3>Torneo Basico</h3>
+                <span class="package-price">$2,500</span>
+                <ul>
+                    <li>Hasta 16 parejas</li>
+                    <li>Logistica y cuadro de llaves</li>
+                    <li>Branding basico del torneo</li>
+                    <li>Cobertura fotografica</li>
+                    <li>Publicacion en redes sociales</li>
+                    <li>Trofeos y premiacion</li>
+                </ul>
+                <a href="https://wa.me/18299420405?text=Hola%2C%20me%20interesa%20el%20paquete%20Torneo%20Basico%20de%20padel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%;justify-content:center;color:var(--text-dark);border-color:rgba(0,0,0,0.15);">Solicitar</a>
+            </div>
+            <div class="package-card featured fade-in">
+                <h3>Torneo Pro</h3>
+                <span class="package-price">$5,500</span>
+                <ul>
+                    <li>Hasta 32 parejas</li>
+                    <li>Logistica completa + arbitraje</li>
+                    <li>Branding profesional completo</li>
+                    <li>Foto + video highlights</li>
+                    <li>Gestion de 3 sponsors</li>
+                    <li>Marketing digital pre y post</li>
+                    <li>Zona VIP y catering basico</li>
+                </ul>
+                <a href="https://wa.me/18299420405?text=Hola%2C%20me%20interesa%20el%20paquete%20Torneo%20Pro%20de%20padel" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;">Solicitar</a>
+            </div>
+            <div class="package-card fade-in">
+                <h3>Torneo Premium</h3>
+                <span class="package-price">$12,000</span>
+                <ul>
+                    <li>Parejas ilimitadas</li>
+                    <li>Produccion integral del evento</li>
+                    <li>Branding 360 + merchandising</li>
+                    <li>Cobertura audiovisual completa</li>
+                    <li>Gestion ilimitada de sponsors</li>
+                    <li>Transmision en vivo</li>
+                    <li>Experiencia premium VIP</li>
+                    <li>Equipo dedicado en sitio</li>
+                </ul>
+                <a href="https://wa.me/18299420405?text=Hola%2C%20me%20interesa%20el%20paquete%20Torneo%20Premium%20de%20padel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width:100%;justify-content:center;color:var(--text-dark);border-color:rgba(0,0,0,0.15);">Solicitar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="section-header">
+            <span class="section-label">Proceso</span>
+            <h2 class="section-title">Como Organizamos Tu Torneo</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step fade-in">
+                <span class="step-number">01</span>
+                <h3>Planificacion</h3>
+                <p>Definimos formato, fecha, sede, presupuesto y objetivos del torneo. Creamos el plan maestro del evento.</p>
+            </div>
+            <div class="process-step fade-in">
+                <span class="step-number">02</span>
+                <h3>Branding &amp; Marketing</h3>
+                <p>Disenamos la identidad visual, lanzamos campanas de inscripcion y gestionamos sponsors y alianzas comerciales.</p>
+            </div>
+            <div class="process-step fade-in">
+                <span class="step-number">03</span>
+                <h3>Ejecucion</h3>
+                <p>Produccion del evento en sitio: montaje, coordinacion de partidos, cobertura audiovisual y experiencia de jugadores.</p>
+            </div>
+            <div class="process-step fade-in">
+                <span class="step-number">04</span>
+                <h3>Post-Evento</h3>
+                <p>Entrega de contenido audiovisual, reportes para sponsors, publicaciones en redes y planificacion de proxima edicion.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Organiza Tu <span class="highlight">Torneo</span></h2>
+        <p>Contactanos para planificar tu proximo torneo de padel. Te ayudamos a crear un evento deportivo inolvidable en Republica Dominicana.</p>
+        <div class="cta-buttons" style="justify-content:center;">
+            <a href="https://wa.me/18299420405?text=Hola%2C%20quiero%20organizar%20un%20torneo%20de%20padel%20con%20Grupo%20Aro" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>Contactar Ahora</span>
+                <span>&rarr;</span>
+            </a>
+            <a href="index.html#contacto" class="btn btn-secondary">
+                <span>Enviar Mensaje</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro" class="footer-logo-img" data-fallback-hide>
+            </a>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">&#128247;</a>
+                <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">&#128188;</a>
+                <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">&#128172;</a>
+            </div>
+            <p class="footer-text">&copy; 2025 Grupo Aro &middot; Studio Est. 2008 &middot; Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+        var menuBtn = document.querySelector('.mobile-menu-btn');
+        var navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', function() {
+            var isOpen = navLinks.style.display === 'flex';
+            if (isOpen) {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'rgba(0,0,0,0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.borderBottom = '1px solid rgba(255,99,71,0.2)';
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) navLinks.style.display = 'none';
+            });
+        });
+
+        document.querySelectorAll('img[data-fallback-hide]').forEach(function(img) {
+            img.addEventListener('error', function() { img.style.display = 'none'; });
+        });
+    </script>
+
+    <!-- WhatsApp AI Sales Agent Chat Widget -->
+    <div class="wa-chat-widget" id="waChatWidget">
+        <div class="wa-chat-box" id="waChatBox">
+            <div class="wa-chat-header">
+                <div class="wa-chat-avatar">A</div>
+                <div class="wa-chat-header-info">
+                    <h4>Aro Asistente</h4>
+                    <p>Agente de ventas AI &middot; En linea</p>
+                </div>
+            </div>
+            <div class="wa-chat-messages" id="waChatMessages"></div>
+            <div class="wa-chat-input">
+                <input type="text" id="waChatInput" placeholder="Escribe tu mensaje..." autocomplete="off" maxlength="500">
+                <button id="waChatSend" aria-label="Enviar">
+                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+        </div>
+        <button class="wa-chat-btn" id="waChatToggle" aria-label="Chat WhatsApp">
+            <span class="wa-pulse"></span>
+            <svg viewBox="0 0 32 32"><path d="M16.01 2.93A13.07 13.07 0 002.93 16a12.94 12.94 0 001.74 6.51L2.93 29.07l6.73-1.77A12.94 12.94 0 0016 29.07 13.07 13.07 0 0016.01 2.93zm0 23.9a10.82 10.82 0 01-5.53-1.52l-.4-.23-4.12 1.08 1.1-4.02-.26-.41A10.83 10.83 0 1116.01 26.83zm5.94-8.11c-.33-.16-1.93-.95-2.23-1.06s-.52-.16-.73.16-.84 1.06-1.03 1.28-.38.25-.71.08a8.93 8.93 0 01-2.64-1.63 9.89 9.89 0 01-1.82-2.27c-.19-.33 0-.5.14-.67.15-.15.33-.38.49-.58a2.2 2.2 0 00.33-.55.61.61 0 00-.03-.58c-.08-.16-.73-1.76-1-2.41s-.53-.55-.73-.56h-.62a1.2 1.2 0 00-.87.41 3.66 3.66 0 00-1.14 2.72 6.35 6.35 0 001.33 3.38 14.53 14.53 0 005.58 4.93 18.65 18.65 0 001.86.69 4.49 4.49 0 002.06.13 3.37 3.37 0 002.21-1.56 2.74 2.74 0 00.19-1.56c-.08-.14-.3-.22-.63-.38z"/></svg>
+            <span class="wa-close-icon">&times;</span>
+        </button>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+        var AGENT_CONFIG = {
+            agencyName: 'Grupo Aro', contactPerson: 'Wendolyn Rodriguez',
+            whatsappNumber: '18299420405', email: 'hello@mynameisaro.com',
+            services: [
+                { name: 'Branding & Diseno', desc: 'Identidades visuales unicas que conectan con tu audiencia', price: 'Desde USD $1,500' },
+                { name: 'Marketing Digital', desc: 'Estrategias 360: SEO, SEM, redes sociales y contenido', price: 'Desde USD $800/mes' },
+                { name: 'Produccion Audiovisual', desc: 'Fotografia y video profesional para tu marca', price: 'Desde USD $1,200' },
+                { name: 'Estrategia Creativa', desc: 'Campanas publicitarias que generan resultados', price: 'Desde USD $2,000' },
+                { name: 'Desarrollo Web', desc: 'Sitios web que convierten visitantes en clientes', price: 'Desde USD $2,500' },
+                { name: 'Analytics & Growth', desc: 'Analisis de datos y optimizacion continua', price: 'Desde USD $600/mes' }
+            ]
+        };
+        var conversationState = 'welcome', userName = '', userInterest = '';
+        var widget = document.getElementById('waChatWidget');
+        var toggleBtn = document.getElementById('waChatToggle');
+        var messagesEl = document.getElementById('waChatMessages');
+        var inputEl = document.getElementById('waChatInput');
+        var sendBtn = document.getElementById('waChatSend');
+
+        toggleBtn.addEventListener('click', function() {
+            widget.classList.toggle('open');
+            if (widget.classList.contains('open') && messagesEl.children.length === 0) showWelcome();
+        });
+        sendBtn.addEventListener('click', handleSend);
+        inputEl.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(); });
+
+        function handleSend() { var text = inputEl.value.trim(); if (!text) return; addMessage(text, 'user'); inputEl.value = ''; processInput(text); }
+        function sanitizeHTML(str) { var div = document.createElement('div'); div.appendChild(document.createTextNode(str)); return div.innerHTML; }
+        function addMessage(text, sender, quickReplies) {
+            var msgDiv = document.createElement('div'); msgDiv.className = 'wa-msg wa-msg-' + (sender === 'user' ? 'user' : 'bot');
+            var safeText = sender === 'user' ? sanitizeHTML(text) : text;
+            msgDiv.innerHTML = safeText + '<div class="wa-msg-time">' + getTime() + '</div>'; messagesEl.appendChild(msgDiv);
+            if (quickReplies && quickReplies.length > 0) {
+                var qrDiv = document.createElement('div'); qrDiv.className = 'wa-quick-replies';
+                quickReplies.forEach(function(reply) {
+                    var btn = document.createElement('button'); btn.className = 'wa-quick-btn'; btn.textContent = reply;
+                    btn.addEventListener('click', function() { addMessage(reply, 'user'); qrDiv.remove(); processInput(reply); });
+                    qrDiv.appendChild(btn);
+                }); messagesEl.appendChild(qrDiv);
+            } scrollToBottom();
+        }
+        function showTyping() { var t = document.createElement('div'); t.className = 'wa-typing'; t.id = 'waTyping'; t.innerHTML = '<span></span><span></span><span></span>'; messagesEl.appendChild(t); scrollToBottom(); }
+        function hideTyping() { var t = document.getElementById('waTyping'); if (t) t.remove(); }
+        function botReply(text, quickReplies, delay) { showTyping(); setTimeout(function() { hideTyping(); addMessage(text, 'bot', quickReplies); }, delay || 1200); }
+        function getTime() { var now = new Date(); var h = now.getHours(); var m = now.getMinutes(); return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
+        function scrollToBottom() { setTimeout(function() { messagesEl.scrollTop = messagesEl.scrollHeight; }, 50); }
+
+        function showWelcome() {
+            conversationState = 'ask_name';
+            botReply('Hola! Bienvenido a <strong>Grupo Aro</strong> 🎨<br><br>Soy tu asistente virtual de ventas. Estoy aqui para ayudarte a encontrar la solucion perfecta para tu marca.<br><br>Para comenzar, como te llamas?', null, 600);
+        }
+        function processInput(text) {
+            var lower = text.toLowerCase().trim();
+            switch (conversationState) {
+                case 'ask_name':
+                    userName = sanitizeHTML(text.split(' ')[0]); userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+                    conversationState = 'main_menu';
+                    botReply('Mucho gusto, <strong>' + userName + '</strong>! 👋<br><br>En Grupo Aro llevamos +16 anos transformando marcas en Republica Dominicana. En que podemos ayudarte hoy?', ['Ver servicios', 'Cotizar proyecto', 'Agendar reunion', 'Hablar con alguien'], 1000);
+                    break;
+                case 'main_menu':
+                    if (lower.includes('servicio') || lower.includes('ver servicio')) { showServices(); }
+                    else if (lower.includes('cotiza') || lower.includes('precio') || lower.includes('costo')) { showQuote(); }
+                    else if (lower.includes('agenda') || lower.includes('reunion') || lower.includes('cita')) { showSchedule(); }
+                    else if (lower.includes('hablar') || lower.includes('humano') || lower.includes('persona') || lower.includes('alguien')) { redirectToWhatsApp('Hola, soy ' + userName + '. Me gustaria hablar con alguien del equipo de Grupo Aro.'); }
+                    else { botReply('Entiendo, ' + userName + '. Dejame ayudarte mejor. Cual de estas opciones te interesa?', ['Ver servicios', 'Cotizar proyecto', 'Agendar reunion', 'Hablar con alguien'], 800); }
+                    break;
+                case 'select_service': handleServiceSelection(lower); break;
+                case 'quote_service': handleServiceSelection(lower); break;
+                case 'schedule_confirm': handleScheduleConfirm(lower); break;
+                case 'after_service_info':
+                    if (lower.includes('cotiza') || lower.includes('precio') || lower.includes('si') || lower === 'cotizar este servicio') {
+                        conversationState = 'schedule_confirm';
+                        botReply('Excelente decision, ' + userName + '! 🎯<br><br>Para darte una cotizacion personalizada, lo mejor es agendar una breve reunion con <strong>Wendolyn Rodriguez</strong>, nuestra directora creativa.<br><br>La reunion es de 20-30 min, sin compromiso. Te gustaria agendarla?', ['Si, agendar ahora', 'Prefiero WhatsApp', 'Ver otros servicios'], 1000);
+                    } else if (lower.includes('otro') || lower.includes('servicio') || lower.includes('ver')) { showServices(); }
+                    else { conversationState = 'schedule_confirm'; botReply('Te gustaria agendar una reunion con Wendolyn para profundizar en esto?', ['Si, agendar ahora', 'Prefiero WhatsApp', 'Volver al menu'], 800); }
+                    break;
+                default: conversationState = 'main_menu'; botReply('Como puedo ayudarte, ' + userName + '?', ['Ver servicios', 'Cotizar proyecto', 'Agendar reunion', 'Hablar con alguien'], 600);
+            }
+        }
+        function showServices() {
+            conversationState = 'select_service';
+            var serviceList = AGENT_CONFIG.services.map(function(s, i) { return '<strong>' + (i + 1) + '. ' + s.name + '</strong><br>&nbsp;&nbsp;&nbsp;' + s.desc; }).join('<br><br>');
+            botReply('Estos son nuestros servicios principales:<br><br>' + serviceList + '<br><br>Cual te interesa? Escribe el numero o nombre.', ['Branding', 'Marketing Digital', 'Produccion AV', 'Desarrollo Web', 'Todos'], 1200);
+        }
+        function handleServiceSelection(text) {
+            var found = null;
+            var keywords = [['brand', 'diseno', 'logo', '1'], ['marketing', 'digital', 'seo', 'redes', '2'], ['audio', 'video', 'foto', 'produccion', '3'], ['estrategia', 'creativa', 'campana', '4'], ['web', 'sitio', 'pagina', 'desarrollo', '5'], ['analytics', 'datos', 'growth', '6']];
+            for (var i = 0; i < keywords.length; i++) { for (var j = 0; j < keywords[i].length; j++) { if (text.includes(keywords[i][j])) { found = AGENT_CONFIG.services[i]; break; } } if (found) break; }
+            if (text.includes('todos') || text.includes('todo') || text.includes('completo')) {
+                conversationState = 'schedule_confirm';
+                botReply('Excelente, ' + userName + '! Si buscas una solucion integral, te recomiendo una reunion con <strong>Wendolyn Rodriguez</strong> para crear un plan 360 personalizado para tu marca.', ['Si, agendar ahora', 'Prefiero WhatsApp'], 1000); return;
+            }
+            if (found) { userInterest = found.name; conversationState = 'after_service_info'; botReply('<strong>' + found.name + '</strong><br><br>' + found.desc + '<br><br>💰 <strong>Inversion:</strong> ' + found.price + '<br><br>✅ Incluye consulta inicial gratuita<br>✅ Propuesta personalizada<br>✅ Soporte continuo<br><br>Te gustaria cotizar este servicio o ver otro?', ['Cotizar este servicio', 'Ver otros servicios', 'Agendar reunion'], 1200); }
+            else { botReply('No encontre ese servicio exacto. Puedes escribir el numero (1-6) o elegir una opcion:', ['Branding', 'Marketing Digital', 'Desarrollo Web', 'Ver todos'], 800); }
+        }
+        function showQuote() { conversationState = 'quote_service'; botReply('Perfecto, ' + userName + '! Para preparar tu cotizacion, que tipo de servicio necesitas?', ['Branding', 'Marketing Digital', 'Produccion AV', 'Desarrollo Web'], 800); }
+        function showSchedule() { conversationState = 'schedule_confirm'; botReply(userName + ', puedes agendar una reunion directamente con <strong>Wendolyn Rodriguez</strong>, nuestra directora creativa. 📅<br><br>La reunion es de 20-30 min, virtual o presencial, sin compromiso.', ['WhatsApp directo', 'Enviar email', 'Volver al menu'], 1000); }
+        function handleScheduleConfirm(text) {
+            var lower = text.toLowerCase();
+            if (lower.includes('si') || lower.includes('agendar') || lower.includes('whatsapp') || lower.includes('directo')) { redirectToWhatsApp('Hola Wendolyn! Soy ' + userName + '. Me interesa el servicio de ' + (userInterest || 'organizacion de torneos de padel') + ' de Grupo Aro y me gustaria agendar una reunion.'); }
+            else if (lower.includes('email') || lower.includes('correo')) { botReply('Puedes escribirnos a: <strong><a href="mailto:hello@mynameisaro.com" style="color:#075E54;">hello@mynameisaro.com</a></strong><br><br>Wendolyn te respondera en menos de 24 horas.', ['Ver servicios', 'Agendar por WhatsApp', 'Eso es todo'], 1000); conversationState = 'main_menu'; }
+            else if (lower.includes('otro') || lower.includes('volver') || lower.includes('menu')) { conversationState = 'main_menu'; botReply('Claro! En que mas puedo ayudarte?', ['Ver servicios', 'Cotizar proyecto', 'Agendar reunion'], 600); }
+            else if (lower.includes('todo') || lower.includes('nada') || lower.includes('gracias')) { botReply('Ha sido un placer, ' + userName + '! 🙌<br><br>Recuerda que estamos disponibles por WhatsApp en cualquier momento. Grupo Aro esta aqui para impulsar tu marca.', ['Hablar por WhatsApp', 'Volver al inicio'], 800); conversationState = 'main_menu'; }
+            else { conversationState = 'main_menu'; botReply('Entendido. En que mas puedo ayudarte?', ['Ver servicios', 'Agendar reunion', 'Hablar con alguien'], 600); }
+        }
+        function redirectToWhatsApp(message) {
+            var encoded = encodeURIComponent(message);
+            var url = 'https://wa.me/' + AGENT_CONFIG.whatsappNumber + '?text=' + encoded;
+            botReply('🟢 Conectandote con <strong>Wendolyn Rodriguez</strong> por WhatsApp...<br><br><a href="' + url + '" target="_blank" rel="noopener noreferrer" style="color:#075E54; font-weight:700; text-decoration:underline;">Abrir WhatsApp &rarr;</a><br><br>Gracias por tu interes en Grupo Aro, ' + userName + '! 🎉', null, 1000);
+            setTimeout(function() { window.open(url, '_blank'); }, 2000);
+        }
+        setTimeout(function() {
+            if (!widget.classList.contains('open')) {
+                var hint = document.createElement('div');
+                hint.style.cssText = 'position:absolute;bottom:74px;right:0;background:#fff;color:#303030;padding:10px 16px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.15);font-size:0.85rem;max-width:220px;animation:waChatIn 0.35s cubic-bezier(0.16,1,0.3,1);cursor:pointer;';
+                hint.innerHTML = 'Hola! 👋 Necesitas ayuda con tu torneo?';
+                hint.addEventListener('click', function() { hint.remove(); widget.classList.add('open'); if (messagesEl.children.length === 0) showWelcome(); });
+                widget.appendChild(hint);
+                setTimeout(function() { if (hint.parentNode) hint.remove(); }, 8000);
+            }
+        }, 5000);
+    })();
+    </script>
+</body>
+</html>
