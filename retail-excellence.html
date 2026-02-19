@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Excellence - Branding & Diseño | Grupo Aro</title>
+    <meta name="description" content="Transformamos marcas retail con identidades visuales únicas. Branding estratégico que conecta con tu audiencia y diferencia tu negocio.">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6347;
+            --primary-light: #FF8C69;
+            --secondary: #1A1A1A;
+            --accent: #FF6347;
+            --bg-dark: #000000;
+            --bg-gray: #0A0A0A;
+            --bg-light: #F8F8F8;
+            --text-dark: #0A0A0A;
+            --text-light: #FFFFFF;
+            --text-gray: #8A8A8A;
+            --gradient-primary: linear-gradient(135deg, #FF6347 0%, #FF8C69 100%);
+            --gradient-dark: linear-gradient(180deg, #000000 0%, #1A1A1A 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 99, 71, 0.1);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo-img { height: 45px; width: auto; }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 5% 6rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(255,99,71,0.2) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 99, 71, 0.15);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 99, 71, 0.3);
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(255, 99, 71, 0.4);
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .cta-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+        /* Services Detail */
+        .services-detail {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .section-header {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 99, 71, 0.1);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: var(--text-dark);
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+            border-color: rgba(255, 99, 71, 0.2);
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Portfolio Showcase */
+        .showcase {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-item {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 99, 71, 0.2);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-item:hover img { transform: scale(1.08); }
+
+        .showcase-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 50%);
+        }
+
+        .showcase-item .label {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 1;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .step-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .step h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo-img { height: 50px; width: auto; }
+
+        .footer-social { display: flex; gap: 1.2rem; }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px) rotate(5deg);
+            border-color: var(--primary);
+        }
+
+        .footer-text { color: var(--text-gray); font-size: 0.95rem; }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .showcase-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.8rem; letter-spacing: -2px; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro Logo" class="logo-img" data-fallback-hide>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#portafolio">Portafolio</a></li>
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&h=900&fit=crop&q=80" alt="Retail branding visual">
+        </div>
+        <div class="hero-content">
+            <span class="hero-label">Branding &amp; Retail</span>
+            <h1 class="hero-title">
+                Retail<br><span class="highlight">Excellence</span>
+            </h1>
+            <p class="hero-subtitle">
+                Creamos identidades de marca que transforman la experiencia retail. Desde el logo hasta el punto de venta, cada elemento cuenta tu historia.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/18299420405?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20Branding%20Retail%20de%20Grupo%20Aro" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span>Solicitar Cotizacion</span>
+                    <span>&rarr;</span>
+                </a>
+                <a href="#proceso" class="btn btn-secondary">
+                    <span>Ver Proceso</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="services-detail">
+        <div class="section-header">
+            <span class="section-label">Que Incluye</span>
+            <h2 class="section-title">Branding Integral para Retail</h2>
+            <p class="section-description">
+                Un ecosistema visual completo que conecta emocionalmente con tu audiencia en cada punto de contacto
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">&#127912;</div>
+                <h3>Identidad Visual</h3>
+                <p>Diseno de logo, paleta de colores, tipografias y sistema visual completo que refleja la esencia de tu marca.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128717;</div>
+                <h3>Diseno de Tienda</h3>
+                <p>Conceptualizacion del espacio retail, senaletica, displays y ambientacion que genera experiencias memorables.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128230;</div>
+                <h3>Packaging</h3>
+                <p>Diseno de empaques y etiquetas que destacan en el estante y comunican los valores de tu producto.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128196;</div>
+                <h3>Brand Guidelines</h3>
+                <p>Manual de marca completo para garantizar consistencia en todas las comunicaciones y aplicaciones.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128241;</div>
+                <h3>Digital Branding</h3>
+                <p>Adaptacion de tu identidad para plataformas digitales: redes sociales, web y e-commerce.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128202;</div>
+                <h3>Estrategia de Marca</h3>
+                <p>Posicionamiento, propuesta de valor y arquitectura de marca alineados a tus objetivos comerciales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase -->
+    <section class="showcase">
+        <div class="section-header">
+            <span class="section-label">Portafolio</span>
+            <h2 class="section-title">Marcas que Hemos Transformado</h2>
+        </div>
+        <div class="showcase-grid">
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=450&fit=crop&q=80" alt="Diseno de tienda retail">
+                <span class="label">Retail Interiors</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=450&fit=crop&q=80" alt="Brand identity mockup">
+                <span class="label">Brand Identity</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop&q=80" alt="Packaging design">
+                <span class="label">Packaging</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=450&fit=crop&q=80" alt="Estrategia de marca">
+                <span class="label">Brand Strategy</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&fit=crop&q=80" alt="Visual merchandising">
+                <span class="label">Visual Merchandising</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=450&fit=crop&q=80" alt="Diseno senaletica">
+                <span class="label">Signage Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="process">
+        <div class="section-header">
+            <span class="section-label">Nuestro Proceso</span>
+            <h2 class="section-title">De la Idea a la Realidad</h2>
+            <p class="section-description">Un proceso probado que garantiza resultados excepcionales para tu marca retail</p>
+        </div>
+        <div class="process-steps">
+            <div class="step fade-in">
+                <span class="step-number">01</span>
+                <h3>Descubrimiento</h3>
+                <p>Analizamos tu mercado, competencia y audiencia para definir la estrategia de marca ideal.</p>
+            </div>
+            <div class="step fade-in">
+                <span class="step-number">02</span>
+                <h3>Concepto Creativo</h3>
+                <p>Desarrollamos propuestas visuales unicas que capturan la esencia de tu negocio.</p>
+            </div>
+            <div class="step fade-in">
+                <span class="step-number">03</span>
+                <h3>Diseno & Desarrollo</h3>
+                <p>Refinamos cada elemento visual y creamos todas las aplicaciones necesarias.</p>
+            </div>
+            <div class="step fade-in">
+                <span class="step-number">04</span>
+                <h3>Implementacion</h3>
+                <p>Acompanamos la ejecucion en tienda, digital y todos los puntos de contacto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Transforma Tu Marca <span class="highlight">Hoy</span></h2>
+        <p>Agenda una consulta gratuita con nuestro equipo creativo y descubre como podemos elevar tu marca retail.</p>
+        <div class="cta-buttons" style="justify-content: center;">
+            <a href="https://wa.me/18299420405?text=Hola%2C%20quiero%20una%20consulta%20gratuita%20de%20Branding%20Retail" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>Consulta Gratuita</span>
+                <span>&rarr;</span>
+            </a>
+            <a href="index.html#contacto" class="btn btn-secondary">
+                <span>Enviar Mensaje</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="index.html">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro" class="footer-logo-img" data-fallback-hide>
+            </a>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">&#128247;</a>
+                <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">&#128188;</a>
+                <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">&#128172;</a>
+            </div>
+            <p class="footer-text">&copy; 2025 Grupo Aro &middot; Studio Est. 2008 &middot; Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+        // Mobile menu
+        var menuBtn = document.querySelector('.mobile-menu-btn');
+        var navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', function() {
+            var isOpen = navLinks.style.display === 'flex';
+            if (isOpen) {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'rgba(0,0,0,0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.borderBottom = '1px solid rgba(255,99,71,0.2)';
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) navLinks.style.display = 'none';
+            });
+        });
+
+        // Image fallback
+        document.querySelectorAll('img[data-fallback-hide]').forEach(function(img) {
+            img.addEventListener('error', function() { img.style.display = 'none'; });
+        });
+    </script>
+</body>
+</html>

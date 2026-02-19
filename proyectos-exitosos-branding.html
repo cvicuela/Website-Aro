@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Exitosos - Branding | Grupo Aro</title>
+    <meta name="description" content="Descubre los proyectos de branding mas exitosos de Grupo Aro. Identidades visuales, estrategia de marca y diseno que transforma negocios en Republica Dominicana.">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6347;
+            --primary-light: #FF8C69;
+            --secondary: #1A1A1A;
+            --accent: #FF6347;
+            --bg-dark: #000000;
+            --bg-gray: #0A0A0A;
+            --bg-light: #F8F8F8;
+            --text-dark: #0A0A0A;
+            --text-light: #FFFFFF;
+            --text-gray: #8A8A8A;
+            --gradient-primary: linear-gradient(135deg, #FF6347 0%, #FF8C69 100%);
+            --gradient-dark: linear-gradient(180deg, #000000 0%, #1A1A1A 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 99, 71, 0.1);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo-img { height: 45px; width: auto; }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 5% 6rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(255,99,71,0.15) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 99, 71, 0.15);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 99, 71, 0.3);
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(255, 99, 71, 0.4);
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .cta-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+        /* Stats Banner */
+        .stats-banner {
+            padding: 4rem 5%;
+            background: var(--gradient-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+        /* Case Studies / Featured Projects */
+        .case-studies {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .section-header {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 99, 71, 0.1);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: var(--text-dark);
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .case-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .case-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-card:hover .case-image img { transform: scale(1.06); }
+
+        .case-image .case-tag {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.4rem 1.2rem;
+            background: rgba(255, 99, 71, 0.9);
+            color: white;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        .case-content {
+            padding: 2.5rem;
+        }
+
+        .case-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .case-content p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-results {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .case-metric {
+            text-align: center;
+        }
+
+        .case-metric strong {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-metric span {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Services Included */
+        .services-detail {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+        }
+
+        .services-detail .section-title { color: var(--text-light); }
+        .services-detail .section-description { color: var(--text-gray); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(255, 99, 71, 0.1);
+            border-color: rgba(255, 99, 71, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Portfolio Showcase */
+        .showcase {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .showcase .section-title { color: var(--text-dark); }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-item {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-item:hover img { transform: scale(1.08); }
+
+        .showcase-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 50%);
+        }
+
+        .showcase-item .label {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 1;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+        }
+
+        .process .section-title { color: var(--text-light); }
+        .process .section-description { color: var(--text-gray); }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .step-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .step h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .step p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 8rem 5%;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            line-height: 1;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .testimonial-info strong {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-info span {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo-img { height: 50px; width: auto; }
+
+        .footer-social { display: flex; gap: 1.2rem; }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px) rotate(5deg);
+            border-color: var(--primary);
+        }
+
+        .footer-text { color: var(--text-gray); font-size: 0.95rem; }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .showcase-grid { grid-template-columns: 1fr 1fr; }
+            .cases-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.8rem; letter-spacing: -2px; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .case-results { flex-wrap: wrap; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro Logo" class="logo-img" data-fallback-hide>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#portafolio">Portafolio</a></li>
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1600&h=900&fit=crop&q=80" alt="Branding y diseno creativo">
+        </div>
+        <div class="hero-content">
+            <span class="hero-label">Proyectos Exitosos</span>
+            <h1 class="hero-title">
+                Proyecto<br><span class="highlight">Branding</span>
+            </h1>
+            <p class="hero-subtitle">
+                Mas de 16 anos creando identidades de marca que transforman negocios. Conoce los proyectos de branding que han posicionado marcas lideres en el Caribe.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/18299420405?text=Hola%2C%20me%20interesa%20un%20proyecto%20de%20Branding%20con%20Grupo%20Aro" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span>Iniciar Mi Proyecto</span>
+                    <span>&rarr;</span>
+                </a>
+                <a href="#casos" class="btn btn-secondary">
+                    <span>Ver Casos de Exito</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Proyectos Exitosos</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Marcas Transformadas</p>
+            </div>
+            <div class="stat-item">
+                <h3>16+</h3>
+                <p>Anos de Experiencia</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Clientes Satisfechos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="casos" class="case-studies">
+        <div class="section-header">
+            <span class="section-label">Casos de Exito</span>
+            <h2 class="section-title">Marcas que Hemos Transformado</h2>
+            <p class="section-description">
+                Cada proyecto es una historia de transformacion. Descubre como hemos ayudado a marcas a destacar y conectar con su audiencia.
+            </p>
+        </div>
+        <div class="cases-grid">
+            <div class="case-card fade-in">
+                <div class="case-image">
+                    <span class="case-tag">Retail</span>
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop&q=80" alt="Proyecto de branding retail">
+                </div>
+                <div class="case-content">
+                    <h3>Retail Excellence</h3>
+                    <p>Rediseno completo de identidad visual para cadena de tiendas premium, incluyendo interiorismo, packaging y experiencia en punto de venta.</p>
+                    <div class="case-results">
+                        <div class="case-metric">
+                            <strong>+45%</strong>
+                            <span>Ventas</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>+60%</strong>
+                            <span>Reconocimiento</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>12</strong>
+                            <span>Sucursales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card fade-in">
+                <div class="case-image">
+                    <span class="case-tag">Gastronomia</span>
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop&q=80" alt="Proyecto de branding restaurante">
+                </div>
+                <div class="case-content">
+                    <h3>Fusion Gourmet</h3>
+                    <p>Creacion de marca desde cero para restaurante de alta cocina caribena. Logo, menu, ambientacion y presencia digital integrada.</p>
+                    <div class="case-results">
+                        <div class="case-metric">
+                            <strong>+80%</strong>
+                            <span>Reservas</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>15K+</strong>
+                            <span>Seguidores</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>4.9</strong>
+                            <span>Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card fade-in">
+                <div class="case-image">
+                    <span class="case-tag">Inmobiliaria</span>
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop&q=80" alt="Proyecto de branding inmobiliaria">
+                </div>
+                <div class="case-content">
+                    <h3>Capital Real Estate</h3>
+                    <p>Rebranding estrategico para grupo inmobiliario. Nueva identidad visual, material corporativo, senaletica y plataforma digital.</p>
+                    <div class="case-results">
+                        <div class="case-metric">
+                            <strong>+120%</strong>
+                            <span>Leads</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>+35%</strong>
+                            <span>Cierres</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>3</strong>
+                            <span>Mercados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card fade-in">
+                <div class="case-image">
+                    <span class="case-tag">Salud &amp; Bienestar</span>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&q=80" alt="Proyecto de branding clinica">
+                </div>
+                <div class="case-content">
+                    <h3>Vida Wellness Center</h3>
+                    <p>Desarrollo integral de marca para centro de bienestar. Identidad visual, interiorismo, uniformes, digital y material POP.</p>
+                    <div class="case-results">
+                        <div class="case-metric">
+                            <strong>+200%</strong>
+                            <span>Pacientes</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>+90%</strong>
+                            <span>Retencion</span>
+                        </div>
+                        <div class="case-metric">
+                            <strong>5</strong>
+                            <span>Sedes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Included -->
+    <section class="services-detail">
+        <div class="section-header">
+            <span class="section-label">Nuestro Servicio</span>
+            <h2 class="section-title">Branding Integral</h2>
+            <p class="section-description">
+                Cada proyecto incluye un ecosistema completo de marca disenado para impactar en cada punto de contacto
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">&#127912;</div>
+                <h3>Identidad Visual</h3>
+                <p>Logo, paleta de colores, tipografias y sistema visual completo que captura la esencia y personalidad de tu marca.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128202;</div>
+                <h3>Estrategia de Marca</h3>
+                <p>Posicionamiento, propuesta de valor, tono de voz y arquitectura de marca alineados a tus objetivos de negocio.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128230;</div>
+                <h3>Packaging &amp; Producto</h3>
+                <p>Diseno de empaques, etiquetas y presentacion de producto que destaca en el mercado y comunica calidad.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128196;</div>
+                <h3>Brand Guidelines</h3>
+                <p>Manual de marca completo que garantiza consistencia en todas las comunicaciones y aplicaciones de tu identidad.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128241;</div>
+                <h3>Branding Digital</h3>
+                <p>Adaptacion de tu identidad para web, redes sociales, e-commerce y todas las plataformas digitales.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128717;</div>
+                <h3>Espacios &amp; Ambientacion</h3>
+                <p>Diseno de interiores comerciales, senaletica, displays y ambientacion que refuerza la experiencia de marca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section class="showcase">
+        <div class="section-header">
+            <span class="section-label">Portafolio</span>
+            <h2 class="section-title">Galeria de Proyectos</h2>
+        </div>
+        <div class="showcase-grid">
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=450&fit=crop&q=80" alt="Identidad de marca">
+                <span class="label">Brand Identity</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop&q=80" alt="Diseno de packaging">
+                <span class="label">Packaging Design</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=450&fit=crop&q=80" alt="Estrategia corporativa">
+                <span class="label">Corporate Strategy</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&fit=crop&q=80" alt="Visual merchandising">
+                <span class="label">Visual Merchandising</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=450&fit=crop&q=80" alt="Senaletica y espacios">
+                <span class="label">Signage &amp; Spaces</span>
+            </div>
+            <div class="showcase-item fade-in">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=450&fit=crop&q=80" alt="Branding digital">
+                <span class="label">Digital Branding</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="process">
+        <div class="section-header">
+            <span class="section-label">Metodologia</span>
+            <h2 class="section-title">Nuestro Proceso Creativo</h2>
+            <p class="section-description">Una metodologia probada en mas de 200 proyectos que garantiza resultados medibles</p>
+        </div>
+        <div class="process-steps">
+            <div class="step fade-in">
+                <span class="step-number">01</span>
+                <h3>Inmersion</h3>
+                <p>Investigamos tu mercado, competencia, audiencia y ADN de marca para construir una base estrategica solida.</p>
+            </div>
+            <div class="step fade-in">
+                <span class="step-number">02</span>
+                <h3>Estrategia</h3>
+                <p>Definimos posicionamiento, propuesta de valor, personalidad de marca y territorio visual diferenciador.</p>
+            </div>
+            <div class="step fade-in">
+                <span class="step-number">03</span>
+                <h3>Creacion</h3>
+                <p>Disenamos la identidad visual completa: logo, sistema grafico, aplicaciones y todos los puntos de contacto.</p>
+            </div>
+            <div class="step fade-in">
+                <span class="step-number">04</span>
+                <h3>Lanzamiento</h3>
+                <p>Implementamos la marca en todos los canales, medimos resultados y afinamos para maximizar el impacto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial">
+        <div class="section-header">
+            <span class="section-label">Testimonios</span>
+            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">&ldquo;</div>
+                <blockquote>
+                    Grupo Aro transformo completamente nuestra imagen. Las ventas aumentaron un 45% desde el rebranding y nuestros clientes reconocen la marca al instante.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MC</div>
+                    <div class="testimonial-info">
+                        <strong>Maria Castillo</strong>
+                        <span>CEO, Retail Excellence</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">&ldquo;</div>
+                <blockquote>
+                    Desde el primer dia entendieron nuestra vision. El resultado fue una marca que respira autenticidad y conecta emocionalmente con nuestros comensales.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">RP</div>
+                    <div class="testimonial-info">
+                        <strong>Roberto Perez</strong>
+                        <span>Fundador, Fusion Gourmet</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">&ldquo;</div>
+                <blockquote>
+                    La inversion en branding con Grupo Aro fue la mejor decision estrategica. Nuestra presencia en el mercado se multiplico y los leads crecieron un 120%.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AL</div>
+                    <div class="testimonial-info">
+                        <strong>Ana Lopez</strong>
+                        <span>Directora, Capital Real Estate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Tu Marca Merece <span class="highlight">Mas</span></h2>
+        <p>Agenda una consulta gratuita y descubre como podemos transformar tu marca con un proyecto de branding exitoso.</p>
+        <div class="cta-buttons" style="justify-content: center;">
+            <a href="https://wa.me/18299420405?text=Hola%2C%20quiero%20una%20consulta%20gratuita%20de%20Branding%20con%20Grupo%20Aro" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>Consulta Gratuita</span>
+                <span>&rarr;</span>
+            </a>
+            <a href="index.html#contacto" class="btn btn-secondary">
+                <span>Enviar Mensaje</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="index.html">
+                <img src="https://www.mynameisaro.com/uploads/8/8/2/9/88290312/editor/logo-aro-blanco.png?1707013453" alt="Grupo Aro" class="footer-logo-img" data-fallback-hide>
+            </a>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">&#128247;</a>
+                <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">&#128188;</a>
+                <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">&#128172;</a>
+            </div>
+            <p class="footer-text">&copy; 2025 Grupo Aro &middot; Studio Est. 2008 &middot; Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+        // Mobile menu
+        var menuBtn = document.querySelector('.mobile-menu-btn');
+        var navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', function() {
+            var isOpen = navLinks.style.display === 'flex';
+            if (isOpen) {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'rgba(0,0,0,0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.borderBottom = '1px solid rgba(255,99,71,0.2)';
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) navLinks.style.display = 'none';
+            });
+        });
+
+        // Image fallback
+        document.querySelectorAll('img[data-fallback-hide]').forEach(function(img) {
+            img.addEventListener('error', function() { img.style.display = 'none'; });
+        });
+    </script>
+</body>
+</html>
